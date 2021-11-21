@@ -1,0 +1,19 @@
+# Run:
+#  rm -rf gen/go/* && buf generate https://github.com/duckladydinh/giathuanapis.git
+version: v1
+plugins:
+  - name: go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - name: go-grpc
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - name: grpc-gateway
+    out: gen/go
+    opt:
+      - paths=source_relative
+      - generate_unbound_methods=true
+  - name: openapiv2
+    out: gen/openapiv2

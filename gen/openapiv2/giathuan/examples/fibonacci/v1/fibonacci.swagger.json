@@ -1,0 +1,97 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "giathuan/examples/fibonacci/v1/fibonacci.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "FibonacciService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/fibonacci/{index}": {
+      "get": {
+        "summary": "Get a Fibonacci number specified by its index.",
+        "operationId": "FibonacciService_GetFibonacci",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetFibonacciResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "index",
+            "description": "A zero-based index pointing to the wanted Fibonacci number.",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "FibonacciService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1GetFibonacciResponse": {
+      "type": "object",
+      "properties": {
+        "index": {
+          "type": "integer",
+          "format": "int32",
+          "description": "A zero-based index pointing to the wanted Fibonacci number."
+        },
+        "value": {
+          "type": "string",
+          "format": "int64",
+          "description": "The Fibonacci value corresponding to the related index."
+        }
+      }
+    }
+  }
+}
