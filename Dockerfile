@@ -1,5 +1,5 @@
 # You can manually build the image by running:
-#  dockebuild . -f Dockerfile -t hub.docker.com/duckladydinh/fibonacci-go-gateway:1.0-SNAPSHOT
+#  docker build . -f Dockerfile -t hub.docker.com/duckladydinh/fibonacci-go-gateway:1.0-SNAPSHOT
 #
 # You can manually run the image by running:
 #  docker run hub.docker.com/duckladydinh/fibonacci-go-gateway:1.0-SNAPSHOT --grpc-server-endpoint=localhost:10001 --http-server-endpoint=localhost:10002
